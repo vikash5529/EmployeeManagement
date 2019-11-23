@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  links = ['View', 'Add', 'Update', 'Delete'];
   constructor() { }
 
   ngOnInit() {
