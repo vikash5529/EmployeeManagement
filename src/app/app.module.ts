@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
-import { AppRoutingModule, viewComponents, routingComponents } from './app-routing.module';
+import { AppRoutingModule, viewComponents, routingComponents, dialogComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppMaterialModule } from './app-material.module';
@@ -10,7 +10,7 @@ import { AppMaterialModule } from './app-material.module';
   declarations: [
     AppComponent,
     routingComponents,
-    viewComponents
+    viewComponents, dialogComponents
   ],
   imports: [
     BrowserModule,
@@ -20,6 +20,7 @@ import { AppMaterialModule } from './app-material.module';
     AppMaterialModule,
     BrowserAnimationsModule
   ],
+  entryComponents: [dialogComponents],
   providers: [],
   bootstrap: [AppComponent]
 })

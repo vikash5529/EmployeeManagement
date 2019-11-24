@@ -6,7 +6,7 @@
         "phoneNumber":89765676,
         "age": 25,
         "gender": "Male",
-        "dob":"22/12/1994"
+        "dob":"12/22/1994"
         
     },
     {
@@ -34,7 +34,7 @@
         "phoneNumber":76588912,
         "age": 28,
         "gender": "Male",
-        "dob":"16/5/1992"
+        "dob":"5/15/1992"
     },
     {
         "employeeId":5,
@@ -43,7 +43,7 @@
         "phoneNumber":88674325,
         "age": 24,
         "gender": "Female",
-        "dob":"16/5/1995"
+        "dob":"2/14/1995"
     },
     {
         "employeeId":6,

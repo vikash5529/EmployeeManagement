@@ -4,9 +4,17 @@ mat-grid-tile {
     height: 100%;
     width: 100%;
     margin-top: 1%;
-    div{
-      font-weight:bolder ;
+    mat-card-content {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
     }
+    div {
+      font-weight: bolder;
+      cursor: pointer;
+      padding: 1px;
+    }
+   
     .Male {
       background-image: url("/assets/businessman.svg");
       background-size: cover;

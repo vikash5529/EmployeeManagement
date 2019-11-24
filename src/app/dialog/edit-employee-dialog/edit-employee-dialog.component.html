@@ -1,0 +1,76 @@
+<div class="container">
+    <div>
+        <mat-card class="mat-elevation-z8">
+            <mat-card-header style="justify-content: space-between; align-items: baseline;">
+                <mat-card-title>Modify Existing Employee</mat-card-title>
+                <mat-form-field style="width: 100px;" appearance="outline">
+                    <mat-label>Employee Id</mat-label>
+                    <input disabled [value]="data?.employeeId" matInput placeholder="Employee Id" />
+                </mat-form-field>
+            </mat-card-header>
+            <mat-divider></mat-divider>
+            <mat-card-content>
+                <form [formGroup]="editEmployeeForm" (submit)="onSubmit()">
+                    <div>
+                        <mat-form-field appearance="outline">
+                            <mat-label>First Name</mat-label>
+                            <input required formControlName="firstName" matInput placeholder="First Name" />
+                            <mat-error *ngIf="employeeFormControls?.firstName.invalid">First Name is Required
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Last Name</mat-label>
+                            <input required formControlName="lastName" matInput placeholder="Last Name" />
+                            <mat-error *ngIf="employeeFormControls?.lastName.invalid">Last Name is Required</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Phone</mat-label>
+                            <input maxlength="10" required formControlName="phoneNumber" matInput placeholder="Phone" />
+                            <mat-error *ngIf="employeeFormControls?.phoneNumber.hasError('required')">Phone Number is
+                                Required </mat-error>
+                            <mat-error *ngIf="employeeFormControls?.phoneNumber.hasError('pattern')">Please Enter valid
+                                Number </mat-error>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Age</mat-label>
+                            <input maxlength="2" required formControlName="age" matInput placeholder="Age" />
+                            <mat-error *ngIf="employeeFormControls?.age.hasError('required')">Age is Required
+                            </mat-error>
+                            <mat-error *ngIf="employeeFormControls?.age.hasError('pattern')">Please Enter valid Age
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Date of Birth</mat-label>
+                            <input #ref matInput formControlName="dob" [matDatepicker]="picker" (dateInput)="onDateChange(ref.value)"
+                                placeholder="Date of Birth">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                            <mat-error *ngIf="employeeFormControls?.dob.invalid">DOB is required</mat-error>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Gender</mat-label>
+                            <mat-select formControlName="gender" placeholder="Select" required>
+                                <mat-option value="Male">Male</mat-option>
+                                <mat-option value="Female">Female</mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="employeeFormControls?.gender.invalid">Gender is required</mat-error>
+
+                        </mat-form-field>
+                    </div>
+
+                    <div>
+                        <mat-divider></mat-divider>
+                        <button [disabled]="! editEmployeeForm.valid" type="submit" mat-raised-button color="primary">
+                            Submit
+                        </button>
+                    </div>
+                </form>
+            </mat-card-content>
+            <mat-card-footer *ngIf="sucessMessage">{{sucessMessage}}</mat-card-footer>
+        </mat-card>
+    </div>
+</div>

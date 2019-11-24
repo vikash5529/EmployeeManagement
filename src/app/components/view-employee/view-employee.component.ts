@@ -18,4 +18,7 @@ export class ViewEmployeeComponent implements OnInit {
     });
   }
 
+  onEditEmployee(data: Employee) {
+    this.employeeService.openDialogComponent(data);
+  }
 }

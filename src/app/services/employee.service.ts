@@ -3,6 +3,8 @@ import { StorageService } from './storage.service';
 import { Employee } from '../models/employee';
 import { HttpClient } from '@angular/common/http';
 import { Subject, BehaviorSubject } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
+import { EditEmployeeDialogComponent } from '../dialog/edit-employee-dialog/edit-employee-dialog.component';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +14,7 @@ export class EmployeeService {
   private employeeData: Array<Employee> = [];
 
   public employeeDataObservable = this.employeeDataSubject.asObservable();
-  constructor(private storageService: StorageService, private httpClient: HttpClient) {
+  constructor(private storageService: StorageService, private httpClient: HttpClient, public dialog: MatDialog) {
     if (!this.storageService.get('employeeData')) {
       this.populateEmployeeData();
     } else {
@@ -21,6 +23,13 @@ export class EmployeeService {
     }
   }
 
+  public openDialogComponent(data: Employee) {
+    console.log(data);
+    this.dialog.open(EditEmployeeDialogComponent, {
+      width: '650px',
+      data
+    }).afterClosed().subscribe(employeeData => this.modifyExistingData(employeeData));
+  }
   public setEmployeeData(data: Partial<Employee>): void {
     const newRecord: Employee = this.createNewRecord(data);
     this.employeeData.push(newRecord);
@@ -28,9 +37,19 @@ export class EmployeeService {
     this.employeeDataSubject.next(this.employeeData);
   }
 
+
   private getEmployeeData(): Array<Employee> {
     this.employeeData = this.storageService.get('employeeData');
     return this.employeeData;
+  }
+  private modifyExistingData(employeeData: Employee) {
+    const employeeId = employeeData.employeeId;
+    const index = this.employeeData.findIndex(data => data.employeeId === employeeId);
+    console.log(index);
+    this.employeeData[index] = employeeData;
+    this.employeeData = [...this.employeeData];
+    console.log(this.employeeData);
+    this.setdata(this.employeeData);
   }
   private emitEmployeeData() {
     this.employeeDataSubject.next(this.employeeData);
@@ -45,8 +64,12 @@ export class EmployeeService {
   private populateEmployeeData() {
     this.httpClient.get<Array<Employee>>('assets/employeeList.json').subscribe(response => {
       const employeeData: Array<Employee> = response;
-      this.storageService.set('employeeData', employeeData);
-      this.emitEmployeeData();
+      this.setdata(employeeData);
     });
+  }
+
+  private setdata(employeeData: Array<Employee>) {
+    this.storageService.set('employeeData', employeeData);
+    this.emitEmployeeData();
   }
 }
