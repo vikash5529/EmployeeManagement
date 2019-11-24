@@ -9,11 +9,13 @@ import { Employee } from '../../models/employee';
 })
 export class ViewEmployeeComponent implements OnInit {
 
-  public employeeData: Array<Partial<Employee>> = [];
+  public employeeData: Array<Employee> = [];
   constructor(private employeeService: EmployeeService) { }
 
   ngOnInit() {
-    this.employeeData = this.employeeService.getEmployeeData();
+    this.employeeService.employeeDataObservable.subscribe((data: Array<Employee>) => {
+      this.employeeData = data;
+    });
   }
 
 }

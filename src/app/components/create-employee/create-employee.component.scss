@@ -1,0 +1,30 @@
+.container {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  flex-direction: column;
+  mat-card {
+    width: 500px;
+    margin: auto;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    div {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      padding: 5px;
+      justify-content: center;
+      mat-form-field {
+        margin: 5px;
+      }
+    }
+  }
+  button {
+    margin: 15px 0px 0px;
+  }
+}
