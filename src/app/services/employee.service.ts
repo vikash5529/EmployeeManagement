@@ -35,11 +35,11 @@ export class EmployeeService {
   private emitEmployeeData() {
     this.employeeDataSubject.next(this.employeeData);
   }
-  private createNewRecord(data: Partial<Employee>): any {
+  private createNewRecord(data: Partial<Employee>): Employee {
     const lastIndex = this.getEmployeeData().length - 1;
     const employeeData = this.getEmployeeData();
     const employeeId = employeeData[lastIndex].employeeId + 1;
-    return { employeeId, ...data };
+    return { employeeId, ...data } as Employee;
   }
 
   private populateEmployeeData() {
