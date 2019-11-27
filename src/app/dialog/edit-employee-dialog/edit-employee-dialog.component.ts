@@ -1,6 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { EmployeeService } from 'src/app/services/employee.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Employee } from 'src/app/models/employee';
 
@@ -28,7 +27,7 @@ export class EditEmployeeDialogComponent implements OnInit {
       lastName: new FormControl(this.data.lastName, Validators.required),
       phoneNumber: new FormControl(this.data.phoneNumber, [Validators.required, Validators.pattern('^[0-9]*$')]),
       age: new FormControl(this.data.age, [Validators.required, Validators.pattern('^[0-9]*$')]),
-      dob: new FormControl(new Date(this.data.dob).toISOString(), Validators.required),
+      dob: new FormControl(new Date(this.data.dob).toISOString().split('T')[0], Validators.required),
       gender: new FormControl(this.data.gender, Validators.required),
     });
   }
