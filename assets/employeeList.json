@@ -6,7 +6,7 @@
         "phoneNumber":89765676,
         "age": 25,
         "gender": "Male",
-        "dob":"22/12/1994"
+        "dob":"1/1/1994"
         
     },
     {
@@ -16,7 +16,7 @@
         "phoneNumber":9986506,
         "age": 23,
         "gender": "Female",
-        "dob":"4/9/1996"
+        "dob":"1/2/1996"
     },
     {
         "employeeId":3,
@@ -25,7 +25,7 @@
         "phoneNumber":96986576,
         "age": 25,
         "gender": "Male",
-        "dob":"1/1/1994"
+        "dob":"2/2/1994"
     },
     {
         "employeeId":4,
@@ -34,7 +34,7 @@
         "phoneNumber":76588912,
         "age": 28,
         "gender": "Male",
-        "dob":"16/5/1992"
+        "dob":"2/5/1992"
     },
     {
         "employeeId":5,
@@ -43,7 +43,7 @@
         "phoneNumber":88674325,
         "age": 24,
         "gender": "Female",
-        "dob":"16/5/1995"
+        "dob":"1/5/1995"
     },
     {
         "employeeId":6,
@@ -52,6 +52,6 @@
         "phoneNumber":890900456,
         "age": 28,
         "gender": "Male",
-        "dob":"9/4/1992"
+        "dob":"1/2/1992"
     }
 ]
