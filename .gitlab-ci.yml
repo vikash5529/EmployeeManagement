@@ -1,8 +1,14 @@
 stages:
-  - build
   - test
-  - e2e_test
+  - build
   - deploy
+ 
+test:
+  stage: test
+  script:
+     - npm install
+     - npm run headless:test
+ 
 
 build:
   stage: build
@@ -13,19 +19,6 @@ build:
     paths:
       - dist/Employee-Management
 
-test:
-  stage: test
-  script:
-     - npm run headless:test
-  dependencies:
-    - build
-
-e2e_test:
-  stage: e2e_test
-  script:
-    - echo "e2e"
-  dependencies:
-    - build
     
 deploy:
   stage: deploy
