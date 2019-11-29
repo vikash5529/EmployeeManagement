@@ -16,7 +16,7 @@ build:
 test:
   stage: test
   script:
-    - echo "test"
+     - npm run headless:test
   dependencies:
     - build
 

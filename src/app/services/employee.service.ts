@@ -24,7 +24,6 @@ export class EmployeeService {
   }
 
   public openDialogComponent(data: Employee) {
-    console.log(data);
     this.dialog.open(EditEmployeeDialogComponent, {
       width: '650px',
       data
@@ -45,7 +44,6 @@ export class EmployeeService {
   }
   private getEmployeeData(): Array<Employee> {
     this.employeeData = this.storageService.get('employeeData');
-    console.log(this.employeeData);
     return this.employeeData;
   }
   private modifyExistingData(employeeData: Employee) {
