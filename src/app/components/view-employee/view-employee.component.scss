@@ -14,7 +14,13 @@ mat-grid-tile {
       cursor: pointer;
       padding: 1px;
     }
-   
+   .edit{
+     display: flex;
+     flex-direction: column;
+     mat-icon{
+       margin: 5px;
+     }
+   }
     .Male {
       background-image: url("/assets/businessman.svg");
       background-size: cover;

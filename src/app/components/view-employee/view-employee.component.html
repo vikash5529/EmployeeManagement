@@ -15,7 +15,10 @@
               <div>Age: {{data.age}}</div>
             </div>
             <div class="edit">
-              <mat-icon (click)="onEditEmployee(data)" style="color:green">edit</mat-icon>
+              <mat-icon matTooltipPosition="left" matTooltip="Edit" (click)="onEditEmployee(data)"
+                style="font-size:30px;color:green">edit</mat-icon>
+              <mat-icon matTooltipPosition="left" matTooltip="Delete" (click)="onDeleteEmployee(data)"
+                style="font-size:30px; color:Red">delete_forever</mat-icon>
             </div>
           </mat-card-content>
         </mat-card>

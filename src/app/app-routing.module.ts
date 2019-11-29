@@ -7,6 +7,7 @@ import { CreateEmployeeComponent } from './components/create-employee/create-emp
 import { EditEmployeeDialogComponent } from './dialog/edit-employee-dialog/edit-employee-dialog.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/viewEmployee', pathMatch: 'full' },
   { path: 'viewEmployee', component: ViewEmployeeComponent },
   { path: 'addEmployee', component: CreateEmployeeComponent }
 ];

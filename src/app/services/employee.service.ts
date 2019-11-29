@@ -37,19 +37,23 @@ export class EmployeeService {
     this.employeeDataSubject.next(this.employeeData);
   }
 
-
+  public deleteEmployee(employeeData: Employee) {
+    const employeeId = employeeData.employeeId;
+    const index = this.employeeData.findIndex(data => data.employeeId === employeeId);
+    this.employeeData.splice(index, 1);
+    this.setdata(this.employeeData);
+  }
   private getEmployeeData(): Array<Employee> {
     this.employeeData = this.storageService.get('employeeData');
+    console.log(this.employeeData);
     return this.employeeData;
   }
   private modifyExistingData(employeeData: Employee) {
     if (employeeData) {
       const employeeId = employeeData.employeeId;
       const index = this.employeeData.findIndex(data => data.employeeId === employeeId);
-      console.log(index);
       this.employeeData[index] = employeeData;
       this.employeeData = [...this.employeeData];
-      console.log(this.employeeData);
       this.setdata(this.employeeData);
     }
   }

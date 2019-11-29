@@ -21,4 +21,7 @@ export class ViewEmployeeComponent implements OnInit {
   onEditEmployee(data: Employee) {
     this.employeeService.openDialogComponent(data);
   }
+  onDeleteEmployee(data: Employee) {
+    this.employeeService.deleteEmployee(data);
+  }
 }
