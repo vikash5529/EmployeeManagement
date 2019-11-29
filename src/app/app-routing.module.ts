@@ -9,7 +9,8 @@ import { EditEmployeeDialogComponent } from './dialog/edit-employee-dialog/edit-
 const routes: Routes = [
   { path: '', redirectTo: '/viewEmployee', pathMatch: 'full' },
   { path: 'viewEmployee', component: ViewEmployeeComponent },
-  { path: 'addEmployee', component: CreateEmployeeComponent }
+  { path: 'addEmployee', component: CreateEmployeeComponent },
+  { path: '**', redirectTo: '/viewEmployee' }
 ];
 
 @NgModule({
