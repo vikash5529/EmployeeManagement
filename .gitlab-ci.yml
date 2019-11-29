@@ -2,7 +2,10 @@ stages:
   - test
   - build
   - deploy
- 
+
+cache:
+  paths:
+    - node_modules/ 
 test:
   stage: test
   script:
@@ -13,7 +16,6 @@ test:
 build:
   stage: build
   script:
-    - npm install
     - npm run build
   artifacts:
     paths:
