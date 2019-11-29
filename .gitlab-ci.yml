@@ -4,25 +4,33 @@ stages:
   - e2e_test
   - deploy
 
-before_script:
-  - npm install
-  
 build:
   stage: build
   script:
-    - ng build
+    - npm install
+    - npm run build
+  artifacts:
+    paths:
+      - dist/Employee-Management
+
 test:
   stage: test
   script:
     - echo "test"
+  dependencies:
+    - build
 
 e2e_test:
   stage: e2e_test
   script:
     - echo "e2e"
+  dependencies:
+    - build
     
 deploy:
   stage: deploy
   script:
     - aws s3 sync dist/Employee-Management "s3://techverito-angular-meetup-demo" --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers
+  dependencies:
+    - build
   

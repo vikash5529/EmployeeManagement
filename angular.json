@@ -41,7 +41,7 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-              "deployUrl": "https://angular-meetup.techverito.com",
+              "deployUrl": "https://angular-meetup.techverito.com/",
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
