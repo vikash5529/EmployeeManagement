@@ -74,6 +74,7 @@ export class EmployeeService {
 
   private setdata(employeeData: Array<Employee>) {
     this.storageService.set('employeeData', employeeData);
+    this.employeeData = employeeData;
     this.emitEmployeeData();
   }
 }

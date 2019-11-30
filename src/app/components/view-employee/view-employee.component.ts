@@ -14,7 +14,9 @@ export class ViewEmployeeComponent implements OnInit {
 
   ngOnInit() {
     this.employeeService.employeeDataObservable.subscribe((data: Array<Employee>) => {
-      this.employeeData = data;
+      if (data) {
+        this.employeeData = data;
+      }
     });
   }
 
